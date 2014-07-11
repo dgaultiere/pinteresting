@@ -4,7 +4,7 @@ class Pin < ActiveRecord::Base
 	has_attached_file :image, 
 		:styles => { :medium => "300x300>", :thumb => "100x100>" },
             :storage => :s3,
-            :bucket  => ENV['MY_BUCKET_NAME']
+            :bucket  => ENV['AWS_BUCKET']
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
 	validates :image, presence: true
